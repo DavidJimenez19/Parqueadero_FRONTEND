@@ -1,0 +1,35 @@
+<section class="container" ng-cloak="">
+  <h2>Parqueaderos List</h2>
+  <!--MD DATA TABLE-->
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <md-table-container>
+        <table md-table>
+          <thead md-head>
+            <tr md-row>
+              <th md-column>Id</th>
+              <th md-column>Tarifa</th>
+              <th md-column>Caja</th>
+              <th md-column>Abierto</th>
+              <th md-column>Total de Puestos</th>
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row ng-repeat="item in vm.parqueaderos">
+              <td md-cell>{{item.id}}</td>
+              <td md-cell><input type="number" ng-model="item.tarifa" ng-change="vm.changeTarifa(item)"></td>
+              <td md-cell>{{item.caja}}</td>
+              <td md-cell>
+               <md-switch ng-model="item.abierto" aria-label="Switch 1" ng-change="vm.changeStatus(item)">
+                 Switch 1: {{item.abierto}}
+               </md-switch>	
+             </td>
+             <td md-cell>{{item.puestos}}</td>
+           </tr>
+         </tbody>
+       </table>
+     </md-table-container>
+   </div>
+ </div>
+ <!--/MD DATA TABLE-->
+</section>
