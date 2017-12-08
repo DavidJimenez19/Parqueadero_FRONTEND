@@ -21,6 +21,7 @@
         .then(response => {
           this.parqueo = response;
           console.log (this.parqueo);
+          if(this.parqueo.placa == this.placaParqueo){
           if(this.parqueo.horaSalida != undefined && this.parqueo.horaSalida > 0){
             if(this.parqueo.horaSalida > this.parqueo.horaLlegada){
               this.horas = this.parqueo.horaSalida - this.parqueo.horaLlegada;
@@ -38,9 +39,13 @@
             }
             this.tryAgainMessage = "Retirar otro parqueo";
           }else{
-            this.message = "El parqueo no existe";
+            this.message = "Digite la hora de salida";
             this.tryAgainMessage = "Intentar de nuevo";
-          }
+          } 
+        } else {
+          this.message = "El parqueo no existe";
+          this.tryAgainMessage = "Intentar de nuevo";
+        }
         })
         .catch(err =>{
           console.log("Error", err);

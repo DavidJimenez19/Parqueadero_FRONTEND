@@ -12,7 +12,7 @@
               <th md-column>Hora Llegada</th>
               <th md-column>Hora Salida</th>
               <th md-column>Puesto asignado</th>
-              <!--th md-column>Acción</th-->
+              <th md-column>Acción</th>
             </tr>
           </thead>
           <tbody md-body>
@@ -21,41 +21,41 @@
               <td md-cell>{{item.placa}}</td>
               <td md-cell>{{item.horaLlegada}}</td>
               <td md-cell><input type="number" ng-model="item.horaSalida" ng-change="vm.changeHoraSalida(item)"></td>
-             <td md-cell>{{item.puestos.puestoSeleccionado}}</td>
-             <!--td md-cell>   <button ng-click="vm.eliminarCarro(item)" class="btn btn-danger">Eliminar del puesto</button> </td-->
-           </tr>
-         </tbody>
-       </table>
-     </md-table-container>
-   </div>
- </div>
- <!--/MD DATA TABLE-->
- <div class="Parqueo-container">
-  <div class="container Parqueo">
-    <div class="row">
-      <div class="col-xs-12 col-md-4 col-md-offset-4 Form-container" ng-if = "!vm.parqueo">
-        <form class="Parqueo-form" ng-submit = "vm.retirarParqueo()">
-          <div class="form-group">
-            <label class="lead">Placa del Parqueo</label>
-            <input class="form-control" type="text" name="" ng-model = "vm.placaParqueo">
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.eliminarCarro(item)" type="submit">RETIRAR</button>
-          </div>
-        </form>
-      </div>
-      <div ng-if="vm.horas != undefined">
-        <div>
-          <h3>El total a pagar es {{vm.totalPagar}}</h3>
+              <td md-cell>{{item.puestos.puestoSeleccionado}}</td>
+              <td md-cell><button ng-click="vm.eliminarCarro(item)" class="btn btn-danger">Eliminar del puesto</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+    </div>
+  </div>
+  <!--/MD DATA TABLE-->
+  <div class="Parqueo-container">
+    <div class="container Parqueo">
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4 Form-container" ng-if = "!vm.parqueo">
+          <form class="Parqueo-form" ng-submit = "vm.retirarParqueo()">
+            <div class="form-group">
+              <label class="lead">Placa del Parqueo</label>
+              <input class="form-control" type="text" name="" ng-model = "vm.placaParqueo">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">RETIRAR</button>
+            </div>
+          </form>
         </div>
-      </div>
-      <div ng-if = "vm.message || vm.totalPagar">
-        <div>
-          <h3>{{vm.message}}</h3>
-          <button class="btn btn-primary" ng-click = "vm.restart()">{{vm.tryAgainMessage}}</button>
+        <div ng-if="vm.horas != undefined">
+          <div>
+            <h3>El total a pagar es {{vm.totalPagar}}</h3>
+          </div>
+        </div>
+        <div ng-if = "vm.message || vm.totalPagar">
+          <div>
+            <h3>{{vm.message}}</h3>
+            <button class="btn btn-primary" ng-click = "vm.restart()">{{vm.tryAgainMessage}}</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
