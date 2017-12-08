@@ -3,13 +3,13 @@
 		<input class="form-control" type="text" ng-model="vm.carro.placa" placeholder="Digite la placa">
 		<input class="form-control" type="number" ng-model="vm.carro.horaLlegada" placeholder="Digite la hora de llegada">
 		<select class="form-control" ng-model="vm.carro.puestos.id">
-			<option ng-value="{{item.id}}" ng-repeat="item in vm.puestos">{{item.puestoSeleccionado}}</option>
+			<option ng-value="{{item.id}}" ng-repeat="item in vm.puesto">{{item.puestoSeleccionado}}</option>
 		</select>
 		<button class="btn btn-primary" type="submit">Crear Carro</button>
 	</form>
 </div>
 <div ng-if = "vm.parqueadero.abierto != true">
 	<div>
-		<h3>El parqueadero esta cerrado {{vm.messageOne}}</h3>
+		<h3>El parqueadero esta cerrado {{vm.message}}</h3>
 	</div>
 </div>

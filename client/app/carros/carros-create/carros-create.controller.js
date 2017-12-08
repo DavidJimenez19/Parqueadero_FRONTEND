@@ -10,13 +10,13 @@
      this.$state = $state;
      this.idParqueadero = 1;
      this.puestoDisponible = true;
-     this.messageOne = undefined;
+     this.message = undefined;
    }
 
    $onInit(){
     this.puestosService.getPuestos({disponible: this.puestoDisponible}, this.puestos).$promise
     .then(response => {
-      this.puestos = response;
+      this.puesto = response;
       console.log("Correcto", response);
     })
     .catch(err => {
@@ -43,7 +43,7 @@
       console.log("Error", err);
     });
   } else {
-    this.messageOne = "El parqueadero esta cerrado";
+    this.message = "El parqueadero esta cerrado";
   }
 }
 
